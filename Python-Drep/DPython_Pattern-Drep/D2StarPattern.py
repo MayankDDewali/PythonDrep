@@ -1,3 +1,12 @@
+"""
+        *
+       ***
+      *****
+     *******
+    *********
+"""
+
+
 #For getting the number of rows
 n = int(input("Enter the number of rows you want: "))
 
