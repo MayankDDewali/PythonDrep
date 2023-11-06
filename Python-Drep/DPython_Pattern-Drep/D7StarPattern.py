@@ -21,7 +21,7 @@ for i in range(0,n):                #For making different rows in ascending orde
     
     print("")                       #For changing the rows
 
-for i in range(0,n):                #For making different rows in descending order
+for i in range(n,0,-1):               #For making different rows in descending order
     
     for j in range(n-i):            #For giving spaces in ascending order
         print(" ",end="")
