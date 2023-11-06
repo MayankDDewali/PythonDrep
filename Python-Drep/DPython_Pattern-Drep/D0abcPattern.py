@@ -1,9 +1,9 @@
 """
-    A
-    AB
-    ABC
-    ABCD
-    ABCDE
+                A
+                AB
+                ABC
+                ABCD
+                ABCDE
 """
 #For getting the number of rows
 n= int(input("Enter the number of rows you want: "))
