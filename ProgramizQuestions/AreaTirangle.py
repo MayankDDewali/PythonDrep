@@ -1,4 +1,4 @@
-#How to find the area of triangle
+#Python Program to Calculate the Area of a Triangle
 
 
 #For getting the first number

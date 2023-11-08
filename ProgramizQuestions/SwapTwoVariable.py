@@ -1,4 +1,4 @@
-#How to swap value of two numbers
+#Python Program to Swap Two Variables
 
 
 #For getting the numbers

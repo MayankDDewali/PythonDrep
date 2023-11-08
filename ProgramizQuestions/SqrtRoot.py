@@ -1,4 +1,4 @@
-#How to print the square root of the number
+#Python Program to Find the Square Root
 
 #For getting the number
 a = int(input("Enter the number: "))

@@ -1,4 +1,4 @@
-#How to add two numbers
+#Python Program to Add Two Numbers
 
 
 #For getting the first number

@@ -1,3 +1,3 @@
-#How to find the quadratic equation
+#Python Program to Solve Quadratic Equation
 
 
