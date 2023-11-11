@@ -2,5 +2,7 @@
 
 #For getting the number
 a = int(input("Enter the number: "))
-
-print(a**.5)
+if(a<0):
+    print("There can be no square root of negative number")
+else:
+    print(a**.5)
