@@ -1,4 +1,4 @@
-#Python Program to Check Armstrong Number
+# Pz19- Python Program to Check Armstrong Number
 num = int(input("Enter the number: "))
 x=num
 arm=0

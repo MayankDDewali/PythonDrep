@@ -1,4 +1,4 @@
-#Python Program to Print all Prime Numbers in an Interval
+# Pz15- Python Program to Print all Prime Numbers in an Interval
 
 
 first = int(input("Enter the starting point: "))

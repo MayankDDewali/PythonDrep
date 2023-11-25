@@ -1,4 +1,4 @@
-#Python Program to Display the multiplication Table
+# Pz17- Python Program to Display the multiplication Table
 
 
 n = int(input("Enter the number: "))            #For getting the value

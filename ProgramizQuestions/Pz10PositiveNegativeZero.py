@@ -1,4 +1,4 @@
-#Python Program to Check if a Number is Positive, Negative or 0
+# Pz10- Python Program to Check if a Number is Positive, Negative or 0
 
 
 n = int(input("Enter the number: "))                #For getting the value of n

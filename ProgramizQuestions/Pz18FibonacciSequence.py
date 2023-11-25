@@ -1,4 +1,4 @@
-#Python Program to Print the Fibonacci sequence
+# Pz18- Python Program to Print the Fibonacci sequence
 
 
 def FiboFunc():                                                     

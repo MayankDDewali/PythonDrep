@@ -1,4 +1,4 @@
-#Python Program to Check Leap Year
+# Pz12- Python Program to Check Leap Year
 
 year = int(input("Enter the year: "))
 

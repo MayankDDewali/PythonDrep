@@ -1,4 +1,4 @@
-#Python Program to Check Prime Number
+# Pz14- Python Program to Check Prime Number
 
 
 #For getting the number

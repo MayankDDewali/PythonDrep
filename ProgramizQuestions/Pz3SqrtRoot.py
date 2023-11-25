@@ -1,4 +1,4 @@
-#Python Program to Find the Square Root
+# Pz3- Python Program to Find the Square Root
 
 #For getting the number
 a = int(input("Enter the number: "))

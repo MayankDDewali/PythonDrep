@@ -1,3 +1,5 @@
+# Pz20- Python Program to Find Armstrong Number in an Interval
+
 def Armstrong():
     n1 = int(input("Enter the starting point: "))
     n2 = int(input("Enter the ending point: "))

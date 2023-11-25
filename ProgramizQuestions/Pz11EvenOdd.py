@@ -1,4 +1,4 @@
-#Python Program to Check if a Number is Odd or Even
+# Pz11- Python Program to Check if a Number is Odd or Even
 
 
 n = int(input("Enter the number: "))            #For getting the value
