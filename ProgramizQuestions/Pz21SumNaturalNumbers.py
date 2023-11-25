@@ -1,4 +1,4 @@
-# Python Program to Find the Sum of Natural Numbers
+# Pz21- ython Program to Find the Sum of Natural Numbers
 
 def SumNumbers():
     num = int(input("Enter the natural number: "))
