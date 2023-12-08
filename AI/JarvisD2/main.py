@@ -5,6 +5,7 @@ import webbrowser
 import datetime
 from AppOpener import open
 import wikipedia
+import openai
 
 # Function for voice output
 def speak(text):
