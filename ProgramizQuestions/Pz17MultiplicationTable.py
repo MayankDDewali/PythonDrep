@@ -7,4 +7,3 @@ for i in range(1,11):                           #For printing the multiplication
     print(n," * ",i," = ",n*i)
     
 # Made by MayankDd
-    

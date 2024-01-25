@@ -21,4 +21,3 @@ for i in range(first, last+1):
         continue
     
 # Made by MayankDd
-    

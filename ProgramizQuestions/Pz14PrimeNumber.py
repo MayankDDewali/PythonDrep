@@ -20,4 +20,3 @@ else:
     print(num," is not the prime number.")
     
 # Made by MayankDd
-    
