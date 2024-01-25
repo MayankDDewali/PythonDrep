@@ -9,3 +9,5 @@ if(n%2==0):
 
 else:
     print(n," is an odd number.")
+    
+# Made by MayankDd

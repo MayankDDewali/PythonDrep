@@ -18,3 +18,6 @@ if(count==1):
     print(num," is the prime number.")
 else:
     print(num," is not the prime number.")
+    
+# Made by MayankDd
+    

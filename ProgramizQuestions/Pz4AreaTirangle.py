@@ -18,3 +18,5 @@ def funct():
         area = (s*(s-a)*(s-b)*(s-c))**.5                        #Area of triangle
         print("Area of triangle = %.4f" %area)
 funct()
+
+# Made by MayankDd

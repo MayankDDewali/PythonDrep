@@ -5,3 +5,5 @@ C = int(input("Enter the value in Celsius: "))              #For getting the val
 F = ((C * 9/5) + 32)/32                                     #For converting Celsius to Fahrenheit
 
 print(C," Celsius = %.4f Fahrenheit"%F)
+
+# Made by MayankDd

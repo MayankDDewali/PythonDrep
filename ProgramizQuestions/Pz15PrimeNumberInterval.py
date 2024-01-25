@@ -19,3 +19,6 @@ for i in range(first, last+1):
         print(i," is the prime number.")
     else:
         continue
+    
+# Made by MayankDd
+    

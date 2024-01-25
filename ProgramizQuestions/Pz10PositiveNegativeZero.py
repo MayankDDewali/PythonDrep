@@ -12,3 +12,5 @@ elif(n > 0):
 
 else:
     print(n," is 0")
+    
+# Made by MayankDd

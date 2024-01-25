@@ -15,3 +15,5 @@ def Factorial():
             fact*=i
     print(fact)
 Factorial()
+
+# Made by MayankDd
