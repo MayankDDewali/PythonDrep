@@ -2,7 +2,7 @@
 
 
 def Kilometer():                                                #Making the function so that we can call it anytime
-    kilo = int(input("Enter the kilometer value: "))            #For getting the value of kilometer
+    kilo = float(input("Enter the kilometer value: "))            #For getting the value of kilometer
     if(kilo<=0):                                                #For invalid values
         if(kilo==0):
             print("0 miles")
