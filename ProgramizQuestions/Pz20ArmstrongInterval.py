@@ -13,17 +13,19 @@ def Armstrong():
         print("Armstrong numbers between range",n1,"to",n2,"are:")
 
         for i in range(n1, n2 + 1):
-            fact = 0
+            arm = 0
             x = i
             
             while x != 0:
-                r = x % 10
-                x = x // 10
-                fact = fact + r**3
+                r = x % 10              # For getting the last number(Ex- If x=123 then we'll get 3)
+                x = x // 10             # For adding the sum of the cube of the digits
+                arm = arm + r**3        # For making quotient the remainder
                 
-            if fact == i:
+            if arm == i:
                 Found = True  # Setting value to True if armstrong are found
                 print(i)
         if not Found:
             print("There are no Armstrong numbers between range",n1,"to",n2,".")
 Armstrong()
+
+# Made by MayankDd
