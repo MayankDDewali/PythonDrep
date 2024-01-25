@@ -1,4 +1,5 @@
-# Python Program to Find HCF or GCD
+# Pz26- Python Program to Find HCF or GCD
+
 x = int(input("Enter the first number: "))
 y = int(input("Enter the second number: "))
 

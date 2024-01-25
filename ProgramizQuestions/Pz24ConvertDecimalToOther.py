@@ -1,4 +1,4 @@
-# Python Program to Convert Decimal to Binary, Octal and Hexadecimal
+# Pz24- Python Program to Convert Decimal to Binary, Octal and Hexadecimal
 
 num = int(input("Enter the number: "))
 
