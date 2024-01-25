@@ -10,3 +10,5 @@ b = int(input("Enter the second value"))
 
 #For printing the sum
 print(a+b)
+
+# Made by MayankDd
