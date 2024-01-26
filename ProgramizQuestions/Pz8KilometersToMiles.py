@@ -11,7 +11,7 @@ def Kilometer():                                                #Making the func
             Kilometer()
     else:
         mile = kilo * 0.621371                                  #Converting kilometers to mile
-        print(kilo," kilometers = %.4f miles"%mile)
+        print(kilo," kilometers = %.4f miles"%kilo)
 Kilometer()                                                     #Calling the function
 
 # Made by MayankDd
