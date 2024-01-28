@@ -9,8 +9,8 @@ def SumNumbers():
         SumNumbers()
     else:
         while(num!=0):
-            sum+=num
-            num-=1
+            sum+=num            # For adding the numbers
+            num-=1              # For decrementing the value till got 0
         print(sum)
 SumNumbers()
 
