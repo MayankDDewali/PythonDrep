@@ -3,15 +3,15 @@
 
 def FiboFunc():                                                     
     n = int(input("Enter the number of sequence you want: "))
-    n1=0
-    n2=1
+    n1=0                    # First Number
+    n2=1                    # Second Number
 
-    if(n<=0):
+    if(n<=0):                                               # Condition for invalid input
         print("Please enter the positive number only")
         FiboFunc()
-    elif(n==1):
+    elif(n==1):                     # Condition for geting first number if input is 1
         print(n1)
-    else:
+    else:                           # For getting the fibonacci sequence in given range
         for i in range(1,n+1):
             print(n1)
             temp=n1
