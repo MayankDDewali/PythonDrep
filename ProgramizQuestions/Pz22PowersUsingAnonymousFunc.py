@@ -7,3 +7,6 @@ pow = int(input("Enter the power: "))
 result = (lambda a, b : a**b) (2, pow)
 
 print("2 to the power ",pow," = ",result)
+
+
+# Made by MayankDd
