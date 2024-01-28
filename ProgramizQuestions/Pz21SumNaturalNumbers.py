@@ -4,7 +4,7 @@ def SumNumbers():
     num = int(input("Enter the natural number: "))      # For getting the number from the user
     sum = 0
 
-    if(num<=0):                                         # 
+    if(num<=0):                                         # Condition for the invalid input 
         print("Please write only positive numbers")
         SumNumbers()
     else:
@@ -13,3 +13,5 @@ def SumNumbers():
             num-=1
         print(sum)
 SumNumbers()
+
+# Made by MayankDd
