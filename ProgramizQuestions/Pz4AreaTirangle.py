@@ -13,6 +13,7 @@ def funct():
         funct()                                                 # For recalling the function
     elif(a+b<=c or b+c<=a or a+c<=b):                            # Giving conditions for invalid sides
         print("You have provided invalid sides")
+        funct()
     else:
         s = (a+b+c)/2                                           # For calculating the 1/2 of perimeter
         area = (s*(s-a)*(s-b)*(s-c))**.5                        # Area of triangle
