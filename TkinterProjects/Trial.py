@@ -183,14 +183,35 @@ apps.place(x=10,y=10)
 
 def weather():
     app1=Toplevel()
-    app1.geometry('850x500+300+170')
+    app1.geometry('850x500+320+170')
     app1.title('Weather')
     app1.configure(bg='#f4f5f5')
     app1.resizable(False,False)
-    app1.mainloop()
     
     # For making weather icon
-    image_icon=PhotoImage(file="TkinterProjects")
+    image_icon=PhotoImage(file="TkinterProjects/Images/Weather.png")
+    app1.iconphoto(False,image_icon)
+    
+    # Search Box
+    # Search_image=PhotoImage(file="TkinterProjects/Images/search.png")
+    # myimage=Label(app1,image=Search_image,bg="#f4f5f5")
+    # myimage.place(x=20,y=20)
+    
+    textfield=tk.Entry(app1,justify='center', width=17, font=('poppins',25,'bold'),bg="#404040",border=0,fg="white")
+    textfield.place(x=50,y=40)
+    textfield.focus()
+    
+    Search_icon = PhotoImage(file="TkinterProjects/Images/search_icon.png")
+    myimage_icon = Button(app1,image=Search_icon, borderwidth=0, cursor="hand2", bg="#404040")
+    myimage_icon.place(x=340,y=40)
+    
+    # Logo
+    logo_image = PhotoImage(file="TkinterProjects/Images/WeatherLogo.png")
+    logo = Label(app1,image=image_icon, bg="#f4f5f5")
+    logo.place(x=150, y=100)
+    
+    app1.mainloop()
+    
     
 app1_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
 app1=Button(RHS2,image=app1_image,bd=0,command=weather)
