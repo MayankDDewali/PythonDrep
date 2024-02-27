@@ -31,10 +31,6 @@ from tkcalendar import *
 # Open Google Library
 # import Pyautogui
 
-import subprocess
-import webbrowser as wb
-import random
-
 # For AI
 import speech_recognition as sr
 import pyttsx3
@@ -338,7 +334,23 @@ app2=Button(RHS2,image=app2_image,bd=0, command=clock)
 app2.place(x=100,y=45)
 
 ################################################# For opening the applicatiuons #################################################
-def open_app_with_ai():
+
+def takeCommand():
+    r = sr.Recognizer()     # Initialize the recognizer
+    with sr.Microphone() as source:
+        # Adjust the pause_threshold if needed
+        r.pause_threshold = 1
+        print("Listening...")
+        audio = r.listen(source)    # Listen for audio input
+        try:
+            query = r.recognize_google(audio, language="en-in")  # Recognize the audio using Google Speech Recognition
+            print(f"User said: {query}")
+            return query
+        except Exception as e:
+            print("Error:", e)
+            return "Some Error Occurred. Sorry from my side."
+
+def open_app():
     # Initialize the text-to-speech engine
     voice_engine = pyttsx3.init()
     
@@ -346,20 +358,79 @@ def open_app_with_ai():
     voice_engine.say("Which application would you like to open?")
     voice_engine.runAndWait()
 
+    text = takeCommand()   # Get user's command through voice input
+    
     # Here, you would call your existing function that handles opening applications based on user input
     # For now, let's print a message to simulate opening the app
     print("Opening application based on user input...")
+    
+    
+    # For opening applications
+    apps = [["vs code", "Visual Studio Code"], ["whatsapp", "Whatsapp"], ["Dev C", "Dev-C++"],
+            ["pycharm", "PyCharm Community Edition 2023.1.2"]]
+
+    # Opening the app in the list of lists
+    for app in apps:
+        if f"open {app[0]}".lower() in text.lower():
+            voice_engine.say(f"Opening {app[0]}, sir...")  # Speak confirmation
+            voice_engine.runAndWait()
+            open(app[1])                        # Open the application
+            return  # Exit the function after opening the app
+
+    # If the user's command doesn't match any known app, inform them
+    voice_engine.say("Sorry, I couldn't understand which app you want to open.")
+    voice_engine.runAndWait()
+
 
 app3_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app3=Button(RHS2,image=app3_image,bd=0, command=open_app_with_ai)
+app3=Button(RHS2,image=app3_image,bd=0, command=open_app)
 app3.place(x=185,y=45)
 
+
+################################################# For opening the sites #################################################
+
+def open_sites():
+    # Initialize the text-to-speech engine
+    voice_engine = pyttsx3.init()
+    
+    # Speak and prompt the user to specify which site they want to open
+    voice_engine.say("Which site would you like to open?")
+    voice_engine.runAndWait()
+
+    text = takeCommand()   # Get user's command through voice input
+    
+    # Here, you would call your existing function that handles opening websites based on user input
+    # For now, let's print a message to simulate opening the site
+    print("Opening Sites based on user input...")
+    
+    
+    # List of websites to open
+    sites = [["youtube", "https://www.youtube.com"], ["wikipedia", "https://www.wikipedia.com"],
+             ["google", "https://www.google.com"], ["github", "https://github.com/"]]
+
+    # Opening the site in the list of lists
+    for site in sites:
+        if f"open {site[0]}".lower() in text.lower():
+            voice_engine.say(f"Opening {site[0]}, sir...")  # Speak confirmation
+            voice_engine.runAndWait()
+            webbrowser.open(site[1])             # Open the website in the browser
+            return  # Exit the function after opening the site
+
+    # If the user's command doesn't match any known site, inform them
+    voice_engine.say("Sorry, I couldn't understand which site you want to open.")
+    voice_engine.runAndWait()
+
+def AskQues():
+    
+
 app4_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app4=Button(RHS2,image=app4_image,bd=0)
+app4=Button(RHS2,image=app4_image,bd=0, command=open_sites)
 app4.place(x=270,y=45)
 
+
+
 app5_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app5=Button(RHS2,image=app5_image,bd=0)
+app5=Button(RHS2,image=app5_image,bd=0, command=AskQues)
 app5.place(x=355,y=45)
 
 root.mainloop()
