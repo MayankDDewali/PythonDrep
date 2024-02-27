@@ -337,6 +337,19 @@ app2_image=PhotoImage(file="TkinterProjects/Images/Clock.png")
 app2=Button(RHS2,image=app2_image,bd=0, command=clock)
 app2.place(x=100,y=45)
 
+################################################# For opening the applicatiuons #################################################
+def open_app_with_ai():
+    # Initialize the text-to-speech engine
+    voice_engine = pyttsx3.init()
+    
+    # Speak and prompt the user to specify which app they want to open
+    voice_engine.say("Which application would you like to open?")
+    voice_engine.runAndWait()
+
+    # Here, you would call your existing function that handles opening applications based on user input
+    # For now, let's print a message to simulate opening the app
+    print("Opening application based on user input...")
+
 app3_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
 app3=Button(RHS2,image=app3_image,bd=0, command=open_app_with_ai)
 app3.place(x=185,y=45)

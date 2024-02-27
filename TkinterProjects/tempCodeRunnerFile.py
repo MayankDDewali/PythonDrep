@@ -1,15 +1,15 @@
-import phonenumbers
-
-# Parse the phone number
-phone_number = phonenumbers.parse("+918534002139", None)
-
-# Get the country that the phone number belongs to
-country = phonenumbers.region_code_for_number(phone_number)
-
-# Get carrier information for the phone number
-carrier = "Unknown"
-if phonenumbers.is_valid_number(phone_number):
-    carrier = phonenumbers.carrier.name_for_number(phone_number, "en")
-
-print("Country:", country)
-print("Carrier:", carrier)
+ta = requests.get(api).json()
+            condition = json_data['weather'][0]['main']
+            description = json_data['weather'][0]['description']
+            temp = int(json_data['main']['temp']-273.15)
+            pressure = json_data['main']['pressure']
+            humidity = json_data['main']['humidity']
+            wind = json_data['wind']['speed']
+            
+            t.config(text=(temp,"°"))
+            c.config(text=(condition,"|","FEELS","LIKE",temp,"°"))
+            
+            w.config(text=wind)
+            h.config(text=humidity)
+            d.config(text=description)
+            p.config(text=pressure)
