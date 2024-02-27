@@ -192,6 +192,45 @@ def weather():
     image_icon=PhotoImage(file="TkinterProjects/Images/Weather.png")
     app1.iconphoto(False,image_icon)
     
+    def getWeather():
+        try:
+            city=textfield.get()
+            
+            geolocator = Nominatim(user_agent="geoapiExercises")
+            location = geolocator.geocode(city)
+            obj = TimezoneFinder()
+            result = obj.timezone_at(lng=location.longitude, lat = location.latitude)
+            
+            home = pytz.timezone(result)
+            local_time = datetime.now(home)
+            current_time = local_time.strftime("%I:%M %p")
+            clock.config(text=current_time)
+            name.config(text="CURRENT WEATHER")
+            
+            api="https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=646824f2b7b86caffec1d0b16ea77f79"
+            
+            json_data = requests.get(api).json()
+            condition = json_data['weather'][0]['main']
+            description = json_data['weather'][0]['description']
+            temp = int(json_data['main']['temp']-273.15)
+            pressure = json_data['main']['pressure']
+            humidity = json_data['main']['humidity']
+            wind = json_data['wind']['speed']
+            
+            t.config(text=(temp,"°"))
+            c.config(text=(condition,"|","FEELS","LIKE",temp,"°"))
+            
+            w.config(text=wind)
+            h.config(text=humidity)
+            d.config(text=description)
+            p.config(text=pressure)
+            
+            
+            
+        except Exception as e:
+            messagebox.showerror("Weatehr App", "Invalid Entry!")
+            
+    
     # Search Box
     # Search_image=PhotoImage(file="TkinterProjects/Images/search.png")
     # myimage=Label(app1,image=Search_image,bg="#f4f5f5")
@@ -202,13 +241,54 @@ def weather():
     textfield.focus()
     
     Search_icon = PhotoImage(file="TkinterProjects/Images/search_icon.png")
-    myimage_icon = Button(app1,image=Search_icon, borderwidth=0, cursor="hand2", bg="#404040")
+    myimage_icon = Button(app1,image=Search_icon, borderwidth=0, cursor="hand2", bg="#404040", command=getWeather)
     myimage_icon.place(x=340,y=40)
     
     # Logo
     logo_image = PhotoImage(file="TkinterProjects/Images/WeatherLogo.png")
-    logo = Label(app1,image=image_icon, bg="#f4f5f5")
+    logo = Label(app1,image=logo_image, bg="#f4f5f5")
     logo.place(x=150, y=100)
+    
+    # Bottom Box
+    Frame_image = PhotoImage(file="TkinterProjects/Images/BlueBox.png")
+    frame_myimage = Label(app1,image=Frame_image, bg="#f4f5f5")
+    frame_myimage.pack(padx=5, pady=5, side=BOTTOM)
+    
+    # Time
+    name = Label(app1,font=('arial', 15, 'bold'), bg="#f4f5f5")
+    name.place(x=30, y=100)
+    clock=Label(app1,font=('Helvetica',20),bg="#f4f5f5")
+    clock.place(x=30, y=130)
+    
+    # Label
+    labell1=Label(app1, text="WIND", font=("Helvatica", 15, "bold"), fg="white", bg="#0b98dc")
+    labell1.place(x=110, y=420)
+    
+    labell2=Label(app1, text="HUMIDITY", font=("Helvatica", 15, "bold"), fg="white", bg="#0b98dc")
+    labell2.place(x=240, y=420)
+    
+    labell3=Label(app1, text="DESCRIPTION", font=("Helvatica", 15, "bold"), fg="white", bg="#0b98dc")
+    labell3.place(x=420, y=420)
+    
+    labell4=Label(app1, text="PRESSURE", font=("Helvatica", 15, "bold"), fg="white", bg="#0b98dc")
+    labell4.place(x=640, y=420)
+    
+    
+    t = Label(app1, font=('arial', 70, 'bold'), fg="#ee666d", bg="#f4f5f5")
+    t.place(x=400, y=150)
+    
+    c = Label(app1, font=('arial', 15, 'bold'), bg="#f4f5f5")
+    c.place(x=400, y=250)
+
+
+    w=Label(app1, text="...", font=('arial', 20, 'bold'), bg="#0b98dc")
+    w.place(x=120, y=450)
+    h=Label(app1, text="...", font=('arial', 20, 'bold'), bg="#0b98dc")
+    h.place(x=280, y=450)
+    d=Label(app1, text="...", font=('arial', 20, 'bold'), bg="#0b98dc")
+    d.place(x=410, y=450)
+    p=Label(app1, text="...", font=('arial', 20, 'bold'), bg="#0b98dc")
+    p.place(x=670, y=450)
     
     app1.mainloop()
     
@@ -232,25 +312,5 @@ app4.place(x=270,y=45)
 app5_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
 app5=Button(RHS2,image=app5_image,bd=0)
 app5.place(x=355,y=45)
-
-app6_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app6=Button(RHS2,image=app6_image,bd=0)
-app6.place(x=15,y=110)
-
-app7_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app7=Button(RHS2,image=app7_image,bd=0)
-app7.place(x=100,y=110)
-
-app8_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app8=Button(RHS2,image=app8_image,bd=0)
-app8.place(x=185,y=110)
-
-app9_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app9=Button(RHS2,image=app9_image,bd=0)
-app9.place(x=270,y=110)
-
-app10_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
-app10=Button(RHS2,image=app10_image,bd=0)
-app10.place(x=355,y=110)
 
 root.mainloop()
