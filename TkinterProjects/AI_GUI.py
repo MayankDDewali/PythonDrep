@@ -141,7 +141,7 @@ none()
 
 
 ############################################################### Speaker ###############################################################
-lbl_speaker = Label(RHS1, text="Speacker:", font=('arial',10,'bold'),bg="#f4f5f5")
+lbl_speaker = Label(RHS1, text="Speaker:", font=('arial',10,'bold'),bg="#f4f5f5")
 lbl_speaker.place(x=10,y=150)
 volume_value = tk.DoubleVar()
 
@@ -300,13 +300,16 @@ def weather():
     
 app1_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
 app1=Button(RHS2,image=app1_image,bd=0,command=weather)
-app1.place(x=15,y=45)
+app1.place(x=15,y=35)
+
+labell5=Label(app1, text="Weather", font=("Helvatica", 10, "bold"), fg="white", bg="black")
+labell5.place(x=0, y=40)
 
 
 ##################################################### Clock #####################################################
 def clock():
     app2 = Toplevel()
-    app2.geometry("850x110+300+10")
+    app2.geometry("850x110+320+30")
     app2.title('Clock')
     app2.configure(bg="#292e2e")
     app2.resizable(False,False)
@@ -331,7 +334,10 @@ def clock():
     
 app2_image=PhotoImage(file="TkinterProjects/Images/Clock.png")
 app2=Button(RHS2,image=app2_image,bd=0, command=clock)
-app2.place(x=100,y=45)
+app2.place(x=100,y=35)
+
+labell6=Label(app2, text="Clock", font=("Helvatica", 10, "bold"), fg="white", bg="black")
+labell6.place(x=15, y=40)
 
 ################################################# For opening the applicatiuons #################################################
 
@@ -382,10 +388,12 @@ def open_app():
     voice_engine.runAndWait()
 
 
-app3_image=PhotoImage(file="TkinterProjects/Images/Button1.png")
+app3_image=PhotoImage(file="TkinterProjects/Images/btn4.png")
 app3=Button(RHS2,image=app3_image,bd=0, command=open_app)
-app3.place(x=185,y=45)
+app3.place(x=185,y=35)
 
+labell7=Label(app3, text="Apps", font=("Helvatica", 10, "bold"), fg="white", bg="black")
+labell7.place(x=13, y=40)
 
 ################################################# For opening the sites #################################################
 
@@ -422,9 +430,12 @@ def open_sites():
 
 
 
-app4_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
+app4_image=PhotoImage(file="TkinterProjects/Images/btn2.png")
 app4=Button(RHS2,image=app4_image,bd=0, command=open_sites)
-app4.place(x=270,y=45)
+app4.place(x=270,y=35)
+
+labell8=Label(app4, text="Sites", font=("Helvatica", 10, "bold"), fg="white", bg="black")
+labell8.place(x=13, y=40)
 
 ######################################################## For Asking Questions ########################################################
 
@@ -474,8 +485,65 @@ def AskQues():
         voice_engine.runAndWait()
 
 
-app5_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
+app5_image=PhotoImage(file="TkinterProjects/Images/btn3.png")
 app5=Button(RHS2,image=app5_image,bd=0, command=AskQues)
-app5.place(x=355,y=45)
+app5.place(x=355,y=35)
+
+labell9=Label(app5, text="Ask", font=("Helvatica", 10, "bold"), fg="white", bg="black")
+labell9.place(x=17, y=40)
+
+############################################################# For Talking #############################################################
+
+def Talkk():
+    try:
+        while True:  # Continuously listen for commands until a valid one is received
+            # Initialize the text-to-speech engine
+            voice_engine = pyttsx3.init()
+
+            # Get the command through voice input
+            print("Listening...")
+            command = takeCommand().lower()
+
+            # Check if the user said "introduce yourself"
+            if "introduce yourself" in command:
+                # Speak introduction
+                voice_engine.say("Hello everyone, I am Project, an AI created by Mr. Mayank. Powered by a blend of libraries including tkinter, psutil, screen_brightness_control, and more, I am equipped with a variety of functions. Need to know the weather in different cities? I've got you covered. Want to check the time? I have an inbuilt clock. Curious about your system's specs? I can provide information on your system's name, version, processor, RAM, and more. Plus, I have the ability to adjust system volume and brightness. With the power of speech, I can engage in conversation, answer questions using Google, and even open websites and apps for you. Consider me a trial project; Mr. Mayank plans to enhance my capabilities in the future. Thank you for interacting with me!")
+                voice_engine.runAndWait()
+                break  # Exit the loop after a valid command is processed
+            elif "libraries used in creating you" in command:
+                # Speak about libraries used
+                voice_engine.say('''Throughout my creation process, Mr. Mayank carefully selected a variety of libraries to empower me with diverse functionalities. Here's a glimpse into the toolkit he employed:
+                                    GUI Libraries: tkinter, ttk, filedialog - Crafting the user interface.
+                                    System Information Libraries: platform, psutil - Gathering system insights.
+                                    Brightness Control Library: screen_brightness_control - Adjusting screen brightness.
+                                    Audio Control Libraries: ctypes, comtypes, pycaw - Managing audio settings.
+                                    Weather Libraries: geopy, timezonefinder, datetime, requests, pytz - Providing weather updates.
+                                    Clock Library: time - Displaying the current time.
+                                    Calendar Library: tkcalendar - Assisting with date-related tasks.
+                                    Speech Recognition and Text-to-Speech Libraries: speech_recognition, pyttsx3 - Enabling voice interactions.
+                                    Web Interaction Libraries: webbrowser, requests, bs4 - Navigating the web and fetching information.
+                                    Custom Library: AppOpener - Handling application operations.
+                                    Each library contributes uniquely to my capabilities, allowing me to serve you better.''')
+                voice_engine.runAndWait()
+                break  # Exit the loop after a valid command is processed
+            else:
+                # Say "Sorry, an error occurred in hearing the command."
+                voice_engine.say("Sorry, an error occurred in hearing the command.")
+                voice_engine.runAndWait()
+                continue  # Continue listening for commands in the loop
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        # Inform the user about the error
+        voice_engine.say("Sorry, an error occurred while processing your request.")
+        voice_engine.runAndWait()
+    
+
+app6_image=PhotoImage(file="TkinterProjects/Images/lastbtn.png")
+app6=Button(RHS2,image=app6_image,bd=0, command=Talkk)
+app6.place(x=15,y=120)
+
+labell10=Label(app6, text="Talk", font=("Helvatica", 10, "bold"), fg="white", bg="black")
+labell10.place(x=15, y=40)
 
 root.mainloop()
