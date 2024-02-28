@@ -49,7 +49,7 @@ root.resizable(False,False)
 root.configure(bg='#292e2e')
 
 # Image Icon
-image_icon = PhotoImage(file="TkinterProjects\Images\DarkDD13logo2.png")
+image_icon = PhotoImage(file="TkinterProjects/Images/DarkDD13logo2.png")
 root.iconphoto(False,image_icon)
 
 Body = Frame(root, width=900, height=600, bg="#d6d6d6")
@@ -62,7 +62,7 @@ LHS.place(x=10, y=10)
 
 ############################################################## LHS Part ##############################################################
 # Laptop Image
-photo=PhotoImage(file="TkinterProjects\Images\Laptop.png")
+photo=PhotoImage(file="TkinterProjects/Images/Laptop.png")
 photo = photo.subsample(2, 2)
 myimage = Label(LHS,image=photo,background="#f4f5f5")
 myimage.place(x=23,y=20)
@@ -162,7 +162,7 @@ volume.place(x=90, y=150)
 volume.set(20)
 
 
-############################################################### Speaker ###############################################################
+############################################################## Brightness ##############################################################
 lbl_brightness = Label(RHS1,text='Brightness',font=('arial',10,'bold'),bg="#f4f5f5")
 lbl_brightness.place(x=10,y=190)
 
@@ -382,7 +382,7 @@ def open_app():
     voice_engine.runAndWait()
 
 
-app3_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
+app3_image=PhotoImage(file="TkinterProjects/Images/Button1.png")
 app3=Button(RHS2,image=app3_image,bd=0, command=open_app)
 app3.place(x=185,y=45)
 
@@ -420,13 +420,58 @@ def open_sites():
     voice_engine.say("Sorry, I couldn't understand which site you want to open.")
     voice_engine.runAndWait()
 
-def AskQues():
-    
+
 
 app4_image=PhotoImage(file="TkinterProjects/Images/Weather.png")
 app4=Button(RHS2,image=app4_image,bd=0, command=open_sites)
 app4.place(x=270,y=45)
 
+######################################################## For Asking Questions ########################################################
+
+def AskQues():
+    # Initialize the text-to-speech engine
+    voice_engine = pyttsx3.init()
+    
+    # Speak and prompt the user to ask a question
+    voice_engine.say("What's your question, sir?")
+    voice_engine.runAndWait()
+
+    question = takeCommand()                        # Get the question through voice input
+    
+    voice_engine.say(f"Your question is: {question}")          # Confirm the question
+    voice_engine.runAndWait()
+    
+    print("Searching for the answer! Please wait...")
+    
+    try:
+        # Fetching Google search results
+        url = f"https://www.google.com/search?q={question}"  # Construct the Google search URL
+        headers = {'User-Agent': 'Mozilla/5.0'}              # Set user-agent header
+        response = requests.get(url, headers=headers)        # Send HTTP request
+        soup = BeautifulSoup(response.text, 'html.parser')   # Parse the HTML response
+        results = soup.find_all('div', class_='BNeawe s3v9rd AP7Wnd')  # Find relevant elements in the HTML
+
+        # Extracting and speaking the answer
+        found_answer = False
+        for result in results:
+            answer = result.get_text()                     # Get the text content of the result
+            # Checking if the answer is relevant
+            if len(answer.split()) > 10:                   # Ensure the answer is not too short
+                print(answer)                             # Print the answer
+                voice_engine.say(answer)                   # Speak the answer
+                voice_engine.runAndWait()
+                found_answer = True
+                break
+
+        if not found_answer:
+            print("Sorry, I couldn't find an answer.")
+            voice_engine.say("Sorry, I couldn't find an answer.")
+            voice_engine.runAndWait()
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        voice_engine.say("Sorry, an error occurred while fetching information.")
+        voice_engine.runAndWait()
 
 
 app5_image=PhotoImage(file="TkinterProjects/Images/Weather.png")

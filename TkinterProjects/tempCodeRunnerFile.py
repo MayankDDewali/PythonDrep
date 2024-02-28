@@ -1,4 +1,4 @@
-ta = requests.get(api).json()
+json_data = requests.get(api).json()
             condition = json_data['weather'][0]['main']
             description = json_data['weather'][0]['description']
             temp = int(json_data['main']['temp']-273.15)
