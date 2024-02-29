@@ -40,7 +40,6 @@ import requests
 from AppOpener import open
 from bs4 import BeautifulSoup
 
-
 # Starting the tkinter code
 root = Tk()
 root.title("TrialProject")
@@ -505,12 +504,14 @@ def Talkk():
             command = takeCommand().lower()
 
             # Check if the user said "introduce yourself"
-            if "introduce yourself" in command:
+            if "introduce yourself".lower() in command:
                 # Speak introduction
-                voice_engine.say("Hello everyone, I am Project, an AI created by Mr. Mayank. Powered by a blend of libraries including tkinter, psutil, screen_brightness_control, and more, I am equipped with a variety of functions. Need to know the weather in different cities? I've got you covered. Want to check the time? I have an inbuilt clock. Curious about your system's specs? I can provide information on your system's name, version, processor, RAM, and more. Plus, I have the ability to adjust system volume and brightness. With the power of speech, I can engage in conversation, answer questions using Google, and even open websites and apps for you. Consider me a trial project; Mr. Mayank plans to enhance my capabilities in the future. Thank you for interacting with me!")
+                voice_engine.say("Alright Mister Mayank")
+                voice_engine.runAndWait()
+                voice_engine.say("Hello everyone, I am Project, an AI created by Mr. Mayank. Powered by a blend of libraries including tkinter, psutil, screen_brightness_control, and more, I am equipped with a variety of funct+ions. Need to know the weather in different cities? I've got you covered. Want to check the time? I have an inbuilt clock. Curious about your system's specs? I can provide information on your system's name, version, processor, RAM, and more. Plus, I have the ability to adjust system volume and brightness. With the power of speech, I can engage in conversation, answer questions using Google, and even open websites and apps for you. Consider me a trial project; Mr. Mayank plans to enhance my capabilities in the future. Thank you for interacting with me!")
                 voice_engine.runAndWait()
                 break  # Exit the loop after a valid command is processed
-            elif "libraries used in creating you" in command:
+            elif "libraries I have used for creating you".lower() in command:
                 # Speak about libraries used
                 voice_engine.say('''Throughout my creation process, Mr. Mayank carefully selected a variety of libraries to empower me with diverse functionalities. Here's a glimpse into the toolkit he employed:
                                     GUI Libraries: tkinter, ttk, filedialog - Crafting the user interface.
