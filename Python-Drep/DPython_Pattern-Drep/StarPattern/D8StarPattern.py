@@ -1,9 +1,14 @@
 """
                 *
-                **
                 * *
-                *  *
-                *****
+                *   *
+                *     *
+                *       *
+                *         *
+                *           *
+                *             *
+                *               *
+                * * * * * * * * * *
 """
 
 #For getting the number of rows
@@ -16,9 +21,9 @@ for i in range(1,n+1):                      #For making different rows in ascend
 #Giving conditions so that this will print stars in first and last of the line and at last row
         
         if(j==1 or j==i or i==n):           #This will print star
-            print("*",end="")
+            print("*",end=" ")
             
         else:                               #This will print spaces
-            print(" ",end="")
+            print(" ",end=" ")
             
     print("")
